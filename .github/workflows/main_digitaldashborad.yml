@@ -21,10 +21,14 @@ jobs:
         with:
           node-version: "18.x"
 
+      - name: List files before build
+        run: |
+          ls -R ./client
+
       - name: npm install, build, and test
         working-directory: ./client
         run: |
-          npm install --prefer-offline
+          npm install 
           npm run build --if-present
           npm run test --if-present
 
